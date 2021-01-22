@@ -1,5 +1,5 @@
-import {BlockFactory} from "./BlockFactory";
-import {Asteroid} from "../block/Asteroid";
+import BlockFactory from "./BlockFactory";
+import Asteroid from "../block/Asteroid";
 
 export class AsteroidFactory extends BlockFactory {
     constructor(canvasWidth, canvasHeight, collection, asteroidFactory) {

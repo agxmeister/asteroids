@@ -1,7 +1,7 @@
-import {BlockFactory} from "./BlockFactory";
-import {Ship} from "../block/Ship";
+import BlockFactory from "./BlockFactory";
+import Ship from "../block/Ship";
 
-export class ShipFactory extends BlockFactory {
+export default class ShipFactory extends BlockFactory {
     constructor(canvasWidth, canvasHeight, collection, bulletFactory, flashFactory) {
         super(canvasWidth, canvasHeight, collection);
         this.bulletFactory = bulletFactory;

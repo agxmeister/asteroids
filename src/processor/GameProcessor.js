@@ -1,6 +1,6 @@
-import {Processor} from "./Processor";
+import Processor from "./Processor";
 
-export class GameProcessor extends Processor {
+export default class GameProcessor extends Processor {
     constructor(shipCollection, asteroidCollection, asteroidFactory, scoreLabel) {
         super();
         this.shipCollection = shipCollection;

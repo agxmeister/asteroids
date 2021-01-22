@@ -1,4 +1,4 @@
-export class Block {
+export default class Block {
     constructor(canvasWidth, canvasHeight, radius) {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;

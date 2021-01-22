@@ -1,6 +1,6 @@
-import {Block} from "./Block";
+import Block from "./Block";
 
-export class Asteroid extends Block {
+export default class Asteroid extends Block {
     constructor(canvasWidth, canvasHeight, size, asteroidFactory) {
         const radius = size === 3 ? 20 : size === 2 ? 15 : 10;
         super(canvasWidth, canvasHeight, radius);

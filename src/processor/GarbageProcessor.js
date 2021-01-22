@@ -1,6 +1,6 @@
-import {Processor} from "./Processor";
+import Processor from "./Processor";
 
-export class GarbageProcessor extends Processor {
+export default class GarbageProcessor extends Processor {
     constructor(...blockCollection) {
         super();
         this.blockCollection = blockCollection;

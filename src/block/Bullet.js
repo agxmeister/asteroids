@@ -1,6 +1,6 @@
-import {Block} from "./Block";
+import Block from "./Block";
 
-export class Bullet extends Block {
+export default class Bullet extends Block {
     constructor(canvasWidth, canvasHeight, flashFactory) {
         super(canvasWidth, canvasHeight, 2);
         this.flashFactory = flashFactory;

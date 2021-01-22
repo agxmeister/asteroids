@@ -1,4 +1,4 @@
-export class BlockFactory {
+export default class BlockFactory {
     constructor(canvasWidth, canvasHeight, collection) {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;

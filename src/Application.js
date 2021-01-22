@@ -1,16 +1,16 @@
-import {BlockCollection} from "./BlockCollection";
+import BlockCollection from "./BlockCollection";
 import {BigAsteroidFactory, MediumAsteroidFactory, SmallAsteroidFactory} from "./factory/AsteroidFactory";
-import {FlashFactory} from "./factory/FlashFactory";
-import {BulletFactory} from "./factory/BulletFactory";
-import {ShipFactory} from "./factory/ShipFactory";
-import {ScoreLabel} from "./block/ScoreLabel";
-import {Pipeline} from "./Pipeline";
-import {CollisionProcessor} from "./processor/CollisionProcessor";
-import {AnimationProcessor} from "./processor/AnimationProcessor";
-import {GameProcessor} from "./processor/GameProcessor";
-import {GarbageProcessor} from "./processor/GarbageProcessor";
+import FlashFactory from "./factory/FlashFactory";
+import BulletFactory from "./factory/BulletFactory";
+import ShipFactory from "./factory/ShipFactory";
+import ScoreLabel from "./block/ScoreLabel";
+import Pipeline from "./Pipeline";
+import CollisionProcessor from "./processor/CollisionProcessor";
+import AnimationProcessor from "./processor/AnimationProcessor";
+import GameProcessor from "./processor/GameProcessor";
+import GarbageProcessor from "./processor/GarbageProcessor";
 
-export class Application {
+export default class Application {
     run(canvas) {
         const context = canvas.getContext('2d');
 

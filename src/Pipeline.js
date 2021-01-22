@@ -1,4 +1,4 @@
-export class Pipeline {
+export default class Pipeline {
     constructor(...processors) {
         this.processors = processors;
     }

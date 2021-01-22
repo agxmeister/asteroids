@@ -1,4 +1,4 @@
-export class BlockCollection {
+export default class BlockCollection {
     constructor() {
         this.blocks = [];
     }

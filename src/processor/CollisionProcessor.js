@@ -1,6 +1,6 @@
-import {Processor} from "./Processor";
+import Processor from "./Processor";
 
-export class CollisionProcessor extends Processor {
+export default class CollisionProcessor extends Processor {
     constructor(shipCollection, bulletCollection, asteroidCollection) {
         super();
         this.shipCollection = shipCollection;

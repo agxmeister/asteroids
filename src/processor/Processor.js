@@ -1,3 +1,3 @@
-export class Processor {
+export default class Processor {
     run(time) {}
 }

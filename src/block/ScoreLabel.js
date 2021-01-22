@@ -1,6 +1,6 @@
-import {Block} from "./Block";
+import Block from "./Block";
 
-export class ScoreLabel extends Block {
+export default class ScoreLabel extends Block {
     constructor(canvasWidth, canvasHeight) {
         super(canvasWidth, canvasHeight, 0);
         this.score = 0;

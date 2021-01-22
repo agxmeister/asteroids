@@ -1,6 +1,6 @@
-import {Processor} from "./Processor";
+import Processor from "./Processor";
 
-export class AnimationProcessor extends Processor {
+export default class AnimationProcessor extends Processor {
     constructor(context, ...blockCollection) {
         super();
         this.context = context;
