@@ -1,6 +1,6 @@
 {
   "name": "@agxmeister/asteroids",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "A clone of the popular game Asteroids released in November 1979 by Atari, Inc.",
   "author": {
     "name": "Aleksey Filatev",
