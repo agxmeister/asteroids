@@ -5,7 +5,7 @@ First, install NPM and Webpack. Then build the application bundle:
 
 ```
 npm install
-npx webpackâa
+npx webpack
 ```
 
 You can check the result by opening `./dist/index.html` in your browser.

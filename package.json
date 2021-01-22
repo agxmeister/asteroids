@@ -1,6 +1,6 @@
 {
-  "name": "asteroids",
-  "version": "1.0.0",
+  "name": "@agxmeister/asteroids",
+  "version": "1.0.2",
   "description": "A clone of the popular game Asteroids released in November 1979 by Atari, Inc.",
   "dependencies": {
     "webpack": "^5.16.0",
@@ -10,5 +10,6 @@
     "name": "Aleksey Filatev",
     "email": "agxmeister@gmail.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/agxmeister/asteroids.git"
 }
