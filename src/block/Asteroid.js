@@ -1,10 +1,11 @@
 import Block from "./Block";
 
 export default class Asteroid extends Block {
-    constructor(canvasWidth, canvasHeight, size, asteroidFactory) {
+    constructor(canvasWidth, canvasHeight, size, splashFactory, asteroidFactory) {
         const radius = size === 3 ? 20 : size === 2 ? 15 : 10;
         super(canvasWidth, canvasHeight, radius);
         this.size = size;
+        this.splashFactory = splashFactory;
         this.asteroidFactory = asteroidFactory;
         this.endurance = size;
         this.rotation = 0;
@@ -17,6 +18,12 @@ export default class Asteroid extends Block {
         this.angles.push(this.angles[0]);
     }
     onDestroy() {
+        for (let i = 0; i < 6; i++) {
+            const splash = this.splashFactory.create();
+            splash.setPosition(this.position.x, this.position.y);
+            splash.setDirection(this.getDirection() + (i - 3) * Math.random() * 55);
+            splash.setSpeed(1.2 + Math.random() * 3);
+        }
         if (this.size <= 1) {
             return;
         }

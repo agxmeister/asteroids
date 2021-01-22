@@ -1,9 +1,9 @@
 import Block from "./Block";
 
 export default class Bullet extends Block {
-    constructor(canvasWidth, canvasHeight, flashFactory) {
+    constructor(canvasWidth, canvasHeight, splashFactory) {
         super(canvasWidth, canvasHeight, 2);
-        this.flashFactory = flashFactory;
+        this.splashFactory = splashFactory;
         this.setSpeed(4);
     }
     onDraw(context) {
@@ -22,10 +22,10 @@ export default class Bullet extends Block {
     }
     onDestroy() {
         for (let i = 0; i < 10; i++) {
-            const flash = this.flashFactory.create();
-            flash.setPosition(this.position.x, this.position.y);
-            flash.setDirection(this.getDirection() - 180 + (i - 5) * Math.random() * 14);
-            flash.setSpeed(3 + Math.random() * 3);
+            const splash = this.splashFactory.create();
+            splash.setPosition(this.position.x, this.position.y);
+            splash.setDirection(this.getDirection() - 180 + (i - 5) * Math.random() * 14);
+            splash.setSpeed(3 + Math.random() * 3);
         }
     }
 }

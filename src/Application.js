@@ -1,6 +1,5 @@
 import BlockCollection from "./BlockCollection";
 import {BigAsteroidFactory, MediumAsteroidFactory, SmallAsteroidFactory} from "./factory/AsteroidFactory";
-import FlashFactory from "./factory/FlashFactory";
 import BulletFactory from "./factory/BulletFactory";
 import ShipFactory from "./factory/ShipFactory";
 import ScoreLabel from "./block/ScoreLabel";
@@ -9,24 +8,26 @@ import CollisionProcessor from "./processor/CollisionProcessor";
 import AnimationProcessor from "./processor/AnimationProcessor";
 import GameProcessor from "./processor/GameProcessor";
 import GarbageProcessor from "./processor/GarbageProcessor";
+import {FireSplashFactory, StoneSplashFactory} from "./factory/SplashFactory";
 
 export default class Application {
     run(canvas) {
         const context = canvas.getContext('2d');
 
-        const asteroidCollection = new BlockCollection();
-        const smallAsteroidFactory = new SmallAsteroidFactory(canvas.width, canvas.height, asteroidCollection);
-        const mediumAsteroidFactory = new MediumAsteroidFactory(canvas.width, canvas.height, asteroidCollection, smallAsteroidFactory);
-        const bigAsteroidFactory = new BigAsteroidFactory(canvas.width, canvas.height, asteroidCollection, mediumAsteroidFactory);
+        const splashCollection = new BlockCollection();
+        const fireSplashFactory = new FireSplashFactory(canvas.width, canvas.height, splashCollection);
+        const stoneSplashFactory = new StoneSplashFactory(canvas.width, canvas.height, splashCollection);
 
-        const flashCollection = new BlockCollection();
-        const flashFactory = new FlashFactory(canvas.width, canvas.height, flashCollection);
+        const asteroidCollection = new BlockCollection();
+        const smallAsteroidFactory = new SmallAsteroidFactory(canvas.width, canvas.height, asteroidCollection, stoneSplashFactory);
+        const mediumAsteroidFactory = new MediumAsteroidFactory(canvas.width, canvas.height, asteroidCollection, stoneSplashFactory, smallAsteroidFactory);
+        const bigAsteroidFactory = new BigAsteroidFactory(canvas.width, canvas.height, asteroidCollection, stoneSplashFactory, mediumAsteroidFactory);
 
         const bulletCollection = new BlockCollection();
-        const bulletFactory = new BulletFactory(canvas.width, canvas.height, bulletCollection, flashFactory);
+        const bulletFactory = new BulletFactory(canvas.width, canvas.height, bulletCollection, fireSplashFactory);
 
         const shipCollection = new BlockCollection();
-        const shipFactory = new ShipFactory(canvas.width, canvas.height, shipCollection, bulletFactory, flashFactory);
+        const shipFactory = new ShipFactory(canvas.width, canvas.height, shipCollection, bulletFactory, fireSplashFactory);
 
         const ship = shipFactory.create();
         ship.setPosition(canvas.width / 2, canvas.height / 2);
@@ -37,9 +38,9 @@ export default class Application {
 
         const pipeline = new Pipeline(
             new CollisionProcessor(shipCollection, bulletCollection, asteroidCollection),
-            new AnimationProcessor(context, shipCollection, bulletCollection, asteroidCollection, flashCollection, labelCollection),
+            new AnimationProcessor(context, shipCollection, bulletCollection, asteroidCollection, splashCollection, labelCollection),
             new GameProcessor(shipCollection, asteroidCollection, bigAsteroidFactory, scoreLabel),
-            new GarbageProcessor(shipCollection, bulletCollection, asteroidCollection, flashCollection),
+            new GarbageProcessor(shipCollection, bulletCollection, asteroidCollection, splashCollection),
         );
 
         function render(time) {
