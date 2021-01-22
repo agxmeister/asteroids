@@ -2,7 +2,7 @@ import Block from "./Block";
 
 export default class Ship extends Block {
     constructor(canvasWidth, canvasHeight, bulletFactory, flashFactory) {
-        super(canvasWidth, canvasHeight, 10);
+        super(canvasWidth, canvasHeight, 7);
         this.bulletFactory = bulletFactory;
         this.flashFactory = flashFactory;
         this.left = false;
